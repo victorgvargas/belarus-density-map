@@ -44,3 +44,29 @@ mat <- matrix(belarus_rast$population, nrow = floor(size * w_ratio), ncol = floo
 mat |>
   height_shade(texture) |>
   plot_3d(heightmap = mat, zscale = 100, solid = FALSE, shadowdepth = 0)
+
+
+render_camera(zoom = .8)
+
+{
+  outifle <- "images/final_plot.png"
+  start_time <- Sys.time()
+  cat(crayon::cyan(start_time), "\n")
+  if(!file.exists(outfile)) {
+    png::writePNG(matrix(1), target = outifle)
+  }
+  render_highquality(
+    filename = outifle,
+    interactive = FALSE,
+    lightdirection = 280,
+    lightaltitude = c(20,80),
+    lightcolor = c(c1[2], "white"),
+    lightintensity = c(600, 100),
+    samples = 450,
+    width = 6000,
+    height = 6000
+  )
+  end_time <- Sys.time()
+  diff <- end_time - start_time
+  cat(crayon::cyan(diff), "\n")
+}

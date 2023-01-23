@@ -4,3 +4,4 @@ data*
 *.Rproj
 *.exe
 *.user
+.Rproj.user
