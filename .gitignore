@@ -1,0 +1,6 @@
+data*
+.RData
+.RHistory
+*.Rproj
+*.exe
+*.user
